@@ -2,8 +2,9 @@ import React from 'react';
 import './style.css';
 
 function Button(props){
+
     return (
-        <button className="button" onClick={() => props.onClick()}>
+        <button className={"button " + props.className} onClick={() => props.onClick()}>
             {props.name}
         </button>
     );   

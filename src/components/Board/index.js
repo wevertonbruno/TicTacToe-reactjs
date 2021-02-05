@@ -10,6 +10,7 @@ class Board extends React.Component{
         this.state = {
             squares: Array(9).fill(null),
             xIsNext: true,
+            buttonClass: "",
         };
     }
 
@@ -43,6 +44,7 @@ class Board extends React.Component{
         for (let i = 0; i < lines.length; i++) {
             const [a, b, c] = lines[i];
             if (this.state.squares[a] && this.state.squares[a] === this.state.squares[b] && this.state.squares[a] === this.state.squares[c]) {
+                this.state.buttonClass = "blink";
                 return this.state.squares[a];
             }
         }
@@ -52,7 +54,7 @@ class Board extends React.Component{
 
     reset(){
         const squares = Array(9).fill(null);
-        this.setState({squares: squares, xIsNext: true});
+        this.setState({squares: squares, xIsNext: true, buttonClass: ""});
     }
 
     render(){
@@ -61,6 +63,7 @@ class Board extends React.Component{
         let status;
 
         if(!this.state.squares.includes(null)){
+            this.state.buttonClass = "blink";
             status = "Draw!";
         }else if(!winner){
             status = `Next Player: ${this.state.xIsNext ? "X" : "O"}`;
@@ -87,7 +90,7 @@ class Board extends React.Component{
                     {this.renderSquare(8)}
                 </div>
                 <div className="board-actions">
-                    <Button onClick={() => this.reset()} name="Restart Game" />
+                    <Button className={this.state.buttonClass} onClick={() => this.reset()} name="Restart Game" />
                 </div>
             </div>
         )
