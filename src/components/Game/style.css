@@ -1,0 +1,21 @@
+.game-board{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-board > div > .board-row:nth-child(2) > .square{
+    border-top: none !important;
+}
+
+.game-board > div > .board-row:nth-child(4) > .square{
+    border-bottom: none !important;
+}
+
+.game-board > div > .board-row:nth-child(2n) > .square:nth-child(2n + 1){
+    background-color: #eee;
+}
+
+.game-board > div > .board-row:nth-child(2n + 1) > .square:nth-child(2n){
+    background-color: #eee;
+}

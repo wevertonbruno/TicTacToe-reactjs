@@ -1,0 +1,22 @@
+.board-row{
+    display: flex;
+}
+
+.board-row > .square:last-child{
+    border-right: none !important;
+}
+
+.board-row > .square:first-child{
+    border-left: none !important;
+}
+
+.status{
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.board-actions{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
